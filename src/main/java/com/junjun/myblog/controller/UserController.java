@@ -102,6 +102,7 @@ public class UserController {
 	@RequestMapping(value = "/user/toUpdateUserForm/{id}")
 	public String toUpdateUserForm(@PathVariable("id") int id, Model model) {
 		User user = userService.findUserById(id);
+		System.out.println(user);
 		model.addAttribute("user", user);
 		return "user/updateUserForm";
 	}
