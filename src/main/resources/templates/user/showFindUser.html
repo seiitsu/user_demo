@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment::header"/>
+<title>显示查询结果</title>
+<body>
+
+    <div class="col-md-2 col-md-offset-5" style="margin-top: 50px;text-align: center;">
+        <h4 class="text-danger" th:text="${message}" style="text-align: center;">不存在用户</h4> 
+    </div>
+    
+    <table class="table table-hover" style="background-color:rgb(167,220,224)">
+        <thead>
+            <caption>查询用户列表</caption>
+            <tr>
+                <th>编号</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>邮箱</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="user:${users}">
+                <td th:text="${user.id}">xxx</td>
+                <td th:text="${user.username}">xxx</td>
+                <td th:text="${user.password}">xxx</td>
+                <td th:text="${user.email}">xxx</td>
+                <td>
+                    <div class="btn-group btn-group-xs">
+                        <button type="button" class="btn btn-info" onclick="location.href='/user/showAllUser'" >返回</button> 
+                        <button type="button" class="btn btn-primary" th:onclick="'toUpdateUserForm(\''+${user.id}+'\');'" >修改</button>
+                        <button type="button" class="btn btn-danger" th:onclick="'deleteUser(\''+${user.id}+'\');'" >删除</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>    
+    </table>
+
+<!--     查询结果分页，待完善后台 -->
+
+<!--     <div class="col-md-2 col-md-offset-5"> 
+        
+        <div class="col-md-4" >                 
+            <input type="text" disabled="disabled" th:field="${pageUser.prePage}" value="xx" style="width:30%"/>
+            <a href="#" th:href="@{/user/showAllUser( pageNum=${pageUser.prePage}==0?${pageUser.firstPage}:${pageUser.prePage})}">上一页</a>
+        </div>
+        
+        <div class="col-md-4" >     
+            <a href="#" th:href="@{/user/showAllUser(pageNum=${pageUser.nextPage}==0?${pageUser.lastPage}:${pageUser.nextPage})}">下一页</a>
+            <input type="text" disabled="disabled" readonly="readonly" th:field="${pageUser.nextPage}" value="xx" style="width:30%" />
+        </div>
+        
+        <div class="col-md-4" >                     
+            <a href="#" th:onclick="'toPage(\''+${pageUser.firstPage}+'\',\''+${pageUser.lastPage}+'\');'">跳转至</a>
+            <input type="text" id="pageNum" value="" style="width:30%" />  
+        </div>   
+   
+    </div> -->
+
+<script th:src="@{/js/user.js}" type="text/javascript"></script>
+</body>
+</html>
