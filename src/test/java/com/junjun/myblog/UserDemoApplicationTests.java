@@ -13,9 +13,9 @@ import com.junjun.myblog.domain.User;
 import com.junjun.myblog.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = MyblogApplication.class)
+@SpringApplicationConfiguration(classes = UserDemoApplication.class)
 @WebAppConfiguration
-public class MyblogApplicationTests {
+public class UserDemoApplicationTests {
 
 	@Autowired
 	UserService userService;

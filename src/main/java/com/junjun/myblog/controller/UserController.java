@@ -65,6 +65,7 @@ public class UserController {
 			session.setAttribute("user", user);// 将用户信息存入session中
 			model.addAttribute("user", user);
 			System.out.println("登录成功测试: " + user);
+			
 			result = true;
 		}
 
